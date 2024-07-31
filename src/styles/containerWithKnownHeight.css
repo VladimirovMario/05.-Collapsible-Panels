@@ -1,0 +1,20 @@
+.toggle-container {
+    max-height: 0;
+    padding-block: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding-block 0.2s ease-in-out;
+}
+
+.toggle-container.open {
+    max-height: 100vh; /* Set to a value that can accommodate the content */
+    padding-block: 0.1rem;
+}
+
+/* Fallback for display issues */
+.toggle-container {
+    display: block;
+}
+
+.toggle-container.open {
+    display: block;
+}

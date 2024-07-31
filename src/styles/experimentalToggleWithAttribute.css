@@ -1,0 +1,31 @@
+/* Example with experimental properties. */
+/* It's not supported in Mozilla for now. Version 128 */
+
+/* Closing state */
+.content-container {
+    block-size: 0;
+    padding-block: 0;
+    transition: all 0.5s ease-in-out;
+    /* https://caniuse.com/?search=transition-behavior */
+    transition-behavior: allow-discrete;
+}
+
+/* Default state after all animations are complete */
+.content-container[open] {
+    block-size: auto;
+    /* https://github.com/w3ctag/design-reviews/issues/955 */
+    block-size: calc-size(auto);
+    height: calc-size(max-content);
+    padding-block: 1.8rem;
+}
+
+/* Unknown at rule @apply css(unknownAtRules) */
+/* https://github.com/tailwindlabs/tailwindcss/discussions/5258 */
+/* Starting point */
+@starting-style {
+    .content-container[open] {
+        block-size: 0;
+        padding-block: 0;
+        display: block;
+    }
+}
